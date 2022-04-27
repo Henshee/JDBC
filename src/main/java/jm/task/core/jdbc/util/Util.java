@@ -17,13 +17,14 @@ public class Util {
     private static final String PASSWORD = "root";
     private static final String DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
     private static final String DIALECT = "org.hibernate.dialect.MySQL8Dialect";
-    private static final boolean SHOW_SQL = true;
+    private static final boolean SHOW_SQL = false;
 
     public static Connection getConnect() {
         Connection connection = null;
 
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            connection.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
         }
