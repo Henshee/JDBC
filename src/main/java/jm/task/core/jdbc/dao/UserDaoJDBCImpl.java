@@ -27,6 +27,11 @@ public class UserDaoJDBCImpl implements UserDao {
             statement.executeUpdate(createTable);
             connection.commit();
         } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
     }
@@ -38,6 +43,11 @@ public class UserDaoJDBCImpl implements UserDao {
             statement.executeUpdate(drop);
             connection.commit();
         } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
     }
@@ -52,6 +62,11 @@ public class UserDaoJDBCImpl implements UserDao {
             prepareStatement.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
     }
@@ -64,6 +79,11 @@ public class UserDaoJDBCImpl implements UserDao {
             pstm.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
     }
@@ -82,6 +102,11 @@ public class UserDaoJDBCImpl implements UserDao {
             }
             connection.commit();
         } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
 
@@ -95,6 +120,11 @@ public class UserDaoJDBCImpl implements UserDao {
             statement.executeUpdate(clean);
             connection.commit();
         } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
     }
